@@ -9,10 +9,7 @@ import (
 )
 
 // Config 全局配置文件 TODO 解决高并发下访问的问题
-var Config struct {
-	MysqlDNS string `json:"mysqlDNS"`
-	WorkerID int64  `json:"workerID"`
-}
+var Config Configuration
 
 func LoadConfig(file string) {
 	data, err := ioutil.ReadFile(file)
