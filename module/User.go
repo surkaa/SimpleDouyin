@@ -12,3 +12,7 @@ type User struct {
 	Status   int8   `json:"status,omitempty"`   // 状态
 	Role     int8   `json:"role,omitempty"`     // 角色
 }
+
+func (table *User) TableName() string {
+	return "user"
+}
