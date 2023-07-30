@@ -9,15 +9,17 @@ import (
 )
 
 // Config 全局配置文件 TODO 解决高并发下访问的问题
-var Config map[string]interface{}
+var Config struct {
+	MysqlDNS string `json:"mysqlDNS"`
+	WorkerID int64  `json:"workerID"`
+}
 
 func LoadConfig(file string) {
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
-		log.Fatalf("配置文件加载失败")
+		log.Fatalf("配置文件加载失败: %v", err)
 	}
 	ext := strings.ToLower(file[strings.LastIndex(file, ".")+1:])
-	Config = make(map[string]interface{})
 	switch ext {
 	case "json":
 		err = json.Unmarshal(data, &Config)
@@ -28,6 +30,6 @@ func LoadConfig(file string) {
 	}
 
 	if err != nil {
-		log.Fatalf("配置文件加载失败")
+		log.Fatalf("配置文件解析失败: %v", err)
 	}
 }

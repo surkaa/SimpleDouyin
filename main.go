@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	config.LoadConfig("./configuration.yaml")
 	g := gin.Default()
 	if err := g.Run(); err != nil {
 		log.Fatalf("启动失败")
+	config.LoadConfig("./configuration.json")
 	}
 }
