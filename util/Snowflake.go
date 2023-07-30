@@ -1,7 +1,7 @@
 package util
 
 import (
-	"fmt"
+	"log"
 	"sync"
 )
 
@@ -24,18 +24,18 @@ type Snowflake struct {
 	sequence      int64      // 序列号
 }
 
-var SF = Snowflake{}
+var SF *Snowflake
 
 // NewSnowflake 根据机器号号初始化Snowflake实例
-func NewSnowflake(workerID int64) (*Snowflake, error) {
+func NewSnowflake(workerID int64) *Snowflake {
 	if workerID < 0 || workerID > maxWorkerID {
-		return nil, fmt.Errorf("worker ID 超出范围")
+		log.Fatalf("worker ID 超出范围")
 	}
 	return &Snowflake{
 		lastTimestamp: -1,
 		workerID:      workerID,
 		sequence:      0,
-	}, nil
+	}
 }
 
 // NextID 生成唯一ID
