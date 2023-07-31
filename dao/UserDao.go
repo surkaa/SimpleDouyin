@@ -10,7 +10,7 @@ type UserDao interface {
 	DeleteUserById(id int64) error
 
 	// UpdateUserById 通过ID更新用户信息
-	UpdateUserById(id int64) error
+	UpdateUserById(user module.User) error
 
 	// GetUserById 通过ID获取用户信息
 	GetUserById(id int64) (module.User, error)
