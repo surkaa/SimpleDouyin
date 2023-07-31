@@ -13,10 +13,15 @@ type Entity struct {
 	UpdateAt time.Time `json:"update_at,omitempty" gorm:"not null;default:CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"` // 更新时间
 }
 
+const (
+	BeforeDel = 0
+	Deleted   = 1
+)
+
 // CreateEntity 快速创建一个实体
 func CreateEntity() Entity {
 	return Entity{
 		ID:       util.SF.NextID(),
-		IsDelete: 0,
+		IsDelete: BeforeDel,
 	}
 }
