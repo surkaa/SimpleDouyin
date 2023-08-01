@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	initApp()
 	g := gin.Default()
+	initApp(g)
 	if err := g.Run(); err != nil {
 		log.Fatalf("启动失败")
 	}
