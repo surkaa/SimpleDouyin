@@ -37,3 +37,10 @@ func (userDao UserDaoImpl) GetUserById(id int64) (module.User, error) {
 	result := db.GetMysqlConnection().First(&user, id)
 	return user, result.Error
 }
+
+// GetUserByUsername 通过账号获取用户信息
+func (userDao UserDaoImpl) GetUserByUsername(username string) (module.User, error) {
+	var user module.User
+	result := db.GetMysqlConnection().Where("username = ? AND is_delete = ?", username, module.BeforeDel).First(&user)
+	return user, result.Error
+}

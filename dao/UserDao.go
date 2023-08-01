@@ -14,4 +14,7 @@ type UserDao interface {
 
 	// GetUserById 通过ID获取用户信息
 	GetUserById(id int64) (module.User, error)
+
+	// GetUserByUsername 通过账号获取用户信息
+	GetUserByUsername(username string) (module.User, error)
 }
