@@ -1,9 +1,10 @@
 package config
 
 type Configuration struct {
-	MysqlDNS string `json:"mysqlDNS"`
-	WorkerID int64  `json:"workerID"`
-	Redis    Redis  `json:"redis"`
+	MysqlDNS       string `json:"mysqlDNS"`
+	WorkerID       int64  `json:"workerID"`
+	Redis          Redis  `json:"redis"`
+	JwtTokenSecret string `json:"jwtTokenSecret"`
 }
 
 // Redis Redis配置
