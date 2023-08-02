@@ -7,6 +7,7 @@ type UserRegister struct {
 	Token  string `json:"token"`
 }
 
+// NewUserRegister 生成一个成功的注册结果返回体
 func NewUserRegister(userId int64, token string) UserRegister {
 	return UserRegister{
 		UserId: userId,
