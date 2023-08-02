@@ -7,6 +7,7 @@ import (
 
 // UserServiceImpl 用户业务层实现类
 type UserServiceImpl struct {
+	UserDao dao.UserDao
 }
 
 // Register 注册

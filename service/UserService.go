@@ -1,9 +1,17 @@
 package service
 
 import (
+	"DouyinBackend/dao"
 	"DouyinBackend/request"
 	"DouyinBackend/response"
+	"DouyinBackend/service/impl"
 )
+
+func NewUserService() UserService {
+	return &impl.UserServiceImpl{
+		UserDao: dao.NewUserDao(),
+	}
+}
 
 // UserService 用户业务操作层
 type UserService interface {
