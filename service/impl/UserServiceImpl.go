@@ -1,6 +1,9 @@
 package impl
 
 import (
+	"DouyinBackend/dao"
+	"DouyinBackend/db"
+	"DouyinBackend/module"
 	"DouyinBackend/request"
 	"DouyinBackend/response"
 )
@@ -12,6 +15,17 @@ type UserServiceImpl struct {
 
 // Register 注册
 func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (response.UserRegister, error) {
+	// 先检查是否已有这个账号:
+	user, err := userServiceImpl.UserDao.GetUserByUsername(body.Username)
+	if err != nil {
+		return response.UserRegister{}, err
+	}
+	user = module.User{
+		Username: body.Username,
+		Password: body.Password,
+	}
+	mysqlDB := db.GetMysqlConnection()
+	mysqlDB.Create(&user)
 	return response.UserRegister{}, nil
 }
 

@@ -7,6 +7,7 @@ import (
 	"DouyinBackend/service/impl"
 )
 
+// NewUserService 工厂函数 构造service层实例 并传入所需的dao层实例
 func NewUserService() UserService {
 	return &impl.UserServiceImpl{
 		UserDao: dao.NewUserDao(),
