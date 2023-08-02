@@ -27,6 +27,11 @@ func Fail() Response {
 	return NewResponse(ErrorCode, "")
 }
 
+// FailWithMsg 失败返回 StatusCode=ErrorCode StatusMsg=msg
+func FailWithMsg(msg string) Response {
+	return NewResponse(ErrorCode, msg)
+}
+
 // Success 成功返回 StatusCode=SuccessCode StatusMsg=""
 func Success() Response {
 	return NewResponse(SuccessCode, "")
