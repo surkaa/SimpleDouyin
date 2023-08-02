@@ -1,6 +1,14 @@
 package dao
 
-import "DouyinBackend/module"
+import (
+	"DouyinBackend/dao/impl"
+	"DouyinBackend/module"
+)
+
+// NewUserDao UserDao 实例化工厂函数
+func NewUserDao() UserDao {
+	return &impl.UserDaoImpl{}
+}
 
 type UserDao interface {
 	// InsertUser 向数据库中插入用户
