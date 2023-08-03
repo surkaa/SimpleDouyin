@@ -1,4 +1,4 @@
-# 仿抖音后端(Douyin, Chinses TikTok)
+# 仿抖音后端(Douyin, China TikTok)
 
 本仓库旨在写一个简易版的抖音后台
 
