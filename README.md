@@ -28,11 +28,11 @@
 |       UserLoginBody.go                - 用户登录请求体
 |       UserRegisterBody.go             - 用户注册请求体
 |   
-+---response                        - 相应体
++---response                        - 响应体
 |       Response.go                     - 通用相应体
-|       UserInfoResponse.go             - 用户信息相应体
-|       UserLoginResponse.go            - 用户登录相应体
-|       UserRegisterResponse.go         - 用户注册相应体
+|       UserInfoResponse.go             - 用户信息响应体
+|       UserLoginResponse.go            - 用户登录响应体
+|       UserRegisterResponse.go         - 用户注册响应体
 |
 +---router                          - 路由
 |       Router.go                       - 路由
