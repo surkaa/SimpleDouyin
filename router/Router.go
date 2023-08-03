@@ -9,6 +9,6 @@ import (
 func RegisterRouter(r *gin.Engine) {
 	d := r.Group("/douyin")
 	d.POST("/user/register/", controller.Register)
-	d.POST("/user/login", controller.Login)
+	d.POST("/user/login/", controller.Login)
 	d.GET("/user/", controller.Info)
 }
