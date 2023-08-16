@@ -4,17 +4,19 @@ import (
 	"DouyinBackend/request"
 	"DouyinBackend/response"
 	"DouyinBackend/service"
-	"DouyinBackend/service/impl"
+	"DouyinBackend/util"
 	"github.com/gin-gonic/gin"
-	"log"
+	"github.com/sirupsen/logrus"
 	"net/http"
+	"time"
 )
 
-var userService service.UserService = impl.UserServiceImpl{}
+var userService = service.NewUserService()
+var logger = logrus.New()
 
 // Register 注册
 func Register(c *gin.Context) {
-	log.Printf("收到注册请求\t")
+	util.Log().WithTime(time.Now().Local()).Info("收到注册请求\t")
 	registerBody, err := request.ParseUserRegisterBody(c)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -23,7 +25,7 @@ func Register(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("解析注册体: %v\t", registerBody)
+	logger.Info("解析注册体: \t%#v\n", registerBody)
 	registerResponse, err := userService.Register(registerBody)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -32,13 +34,13 @@ func Register(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("注册结果: %v\n", registerResponse)
+	logger.Info("注册结果: %v\n", registerResponse)
 	c.JSON(http.StatusOK, registerResponse)
 }
 
 // Login 登录
 func Login(c *gin.Context) {
-	log.Printf("收到登录请求\t")
+	logger.Info("收到登录请求\t")
 	loginBody, err := request.ParseUserLoginBody(c)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -47,7 +49,7 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("解析登录体: %v\t", loginBody)
+	logger.Info("解析登录体: %v\t", loginBody)
 	loginResponse, err := userService.Login(loginBody)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -56,13 +58,13 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("登录结果: %v\n", loginResponse)
+	logger.Info("登录结果: %v\n", loginResponse)
 	c.JSON(http.StatusOK, loginResponse)
 }
 
 // Info 获取用户信息
 func Info(c *gin.Context) {
-	log.Printf("收到获取用户信息请求\t")
+	logger.Info("收到获取用户信息请求\t")
 	infoBody, err := request.ParseUserInfoBody(c)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -71,7 +73,7 @@ func Info(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("解析获取用户信息体: %v\t", infoBody)
+	logger.Info("解析获取用户信息体: %v\t", infoBody)
 	infoResponse, err := userService.Info(infoBody)
 	if err != nil {
 		c.JSON(http.StatusOK, response.Response{
@@ -80,6 +82,6 @@ func Info(c *gin.Context) {
 		})
 		return
 	}
-	log.Printf("获取用户信息结果: %v\n", infoResponse)
+	logger.Info("获取用户信息结果: %v\n", infoResponse)
 	c.JSON(http.StatusOK, infoResponse)
 }
