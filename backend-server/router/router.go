@@ -1,7 +1,7 @@
 package router
 
 import (
-	"SimpleDouyin/controller"
+	"SimpleDouyin/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -10,8 +10,6 @@ func RegisterRouter(r *gin.Engine) {
 	if r == nil {
 		return
 	}
-	d := r.Group("/douyin")
-	d.POST("/user/register/", controller.Register)
-	d.POST("/user/login/", controller.Login)
-	d.GET("/user/", controller.Info)
+	r.Use(middleware.RequestInfoMiddleware)
+	registerAuthRouter(r.Group("/douyin/user/"))
 }
