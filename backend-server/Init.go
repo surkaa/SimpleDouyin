@@ -8,7 +8,7 @@ import (
 )
 
 func initApp(r *gin.Engine) {
-	config.LoadConfig("./configuration.json")
+	config.LoadConfig("../backend-server-configuration.json")
 	util.SF = util.NewSnowflake(config.Config.WorkerID)
 	util.InitLogger("app.log")
 	router.RegisterRouter(r)
