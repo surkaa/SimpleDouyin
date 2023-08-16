@@ -7,7 +7,7 @@
 *.dll
 *.so
 *.dylib
-configuration.json
+backend-server-configuration.json
 .idea
 
 # Test binary, built with `go test -c`
