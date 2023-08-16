@@ -4,7 +4,7 @@
 //    comment, err := UnmarshalComment(bytes)
 //    bytes, err = comment.Marshal()
 
-package response
+package data_module
 
 import "encoding/json"
 

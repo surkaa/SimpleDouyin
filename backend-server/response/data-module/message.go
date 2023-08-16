@@ -4,7 +4,7 @@
 //    message, err := UnmarshalMessage(bytes)
 //    bytes, err = message.Marshal()
 
-package response
+package data_module
 
 import "encoding/json"
 

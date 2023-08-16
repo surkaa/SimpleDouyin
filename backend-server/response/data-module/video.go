@@ -4,7 +4,7 @@
 //    video, err := UnmarshalVideo(bytes)
 //    bytes, err = video.Marshal()
 
-package response
+package data_module
 
 import "encoding/json"
 
