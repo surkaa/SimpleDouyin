@@ -1,8 +1,8 @@
 package impl
 
 import (
-	"DouyinBackend/db"
-	"DouyinBackend/module"
+	"SimpleDouyin/db"
+	"SimpleDouyin/module"
 	"github.com/sirupsen/logrus"
 )
 

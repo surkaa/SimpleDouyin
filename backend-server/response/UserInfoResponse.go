@@ -1,6 +1,6 @@
 package response
 
-import "DouyinBackend/module"
+import "SimpleDouyin/module"
 
 // UserInfo 获取用户信息返回体
 type UserInfo struct {

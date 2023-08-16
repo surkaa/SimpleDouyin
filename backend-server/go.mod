@@ -1,4 +1,4 @@
-module DouyinBackend
+module SimpleDouyin
 
 go 1.21rc2
 

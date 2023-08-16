@@ -1,7 +1,7 @@
 package db
 
 import (
-	"DouyinBackend/config"
+	"SimpleDouyin/config"
 	"github.com/go-redis/redis/v8"
 )
 

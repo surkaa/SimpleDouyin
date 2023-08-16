@@ -1,10 +1,10 @@
 package service
 
 import (
-	"DouyinBackend/dao"
-	"DouyinBackend/request"
-	"DouyinBackend/response"
-	"DouyinBackend/service/impl"
+	"SimpleDouyin/dao"
+	"SimpleDouyin/request"
+	"SimpleDouyin/response"
+	"SimpleDouyin/service/impl"
 )
 
 // NewUserService 工厂函数 构造service层实例 并传入所需的dao层实例

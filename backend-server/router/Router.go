@@ -1,7 +1,7 @@
 package router
 
 import (
-	"DouyinBackend/controller"
+	"SimpleDouyin/controller"
 	"github.com/gin-gonic/gin"
 )
 

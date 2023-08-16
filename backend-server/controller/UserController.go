@@ -1,10 +1,10 @@
 package controller
 
 import (
-	"DouyinBackend/request"
-	"DouyinBackend/response"
-	"DouyinBackend/service"
-	"DouyinBackend/util"
+	"SimpleDouyin/request"
+	"SimpleDouyin/response"
+	"SimpleDouyin/service"
+	"SimpleDouyin/util"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"net/http"

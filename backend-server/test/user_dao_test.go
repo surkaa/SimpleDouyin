@@ -1,7 +1,7 @@
 package test
 
 import (
-	"DouyinBackend/dao"
+	"SimpleDouyin/dao"
 	"fmt"
 	"testing"
 )
