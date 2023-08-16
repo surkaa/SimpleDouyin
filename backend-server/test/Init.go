@@ -1,8 +1,8 @@
 package test
 
 import (
-	"DouyinBackend/config"
-	"DouyinBackend/util"
+	"SimpleDouyin/config"
+	"SimpleDouyin/util"
 )
 
 func initTestApp() {

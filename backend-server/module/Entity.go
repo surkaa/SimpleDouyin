@@ -1,7 +1,7 @@
 package module
 
 import (
-	"DouyinBackend/util"
+	"SimpleDouyin/util"
 	"time"
 )
 

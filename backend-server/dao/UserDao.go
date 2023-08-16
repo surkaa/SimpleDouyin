@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"DouyinBackend/dao/impl"
-	"DouyinBackend/module"
+	"SimpleDouyin/dao/impl"
+	"SimpleDouyin/module"
 	"github.com/sirupsen/logrus"
 )
 

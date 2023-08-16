@@ -1,11 +1,11 @@
 package impl
 
 import (
-	"DouyinBackend/dao"
-	"DouyinBackend/db"
-	"DouyinBackend/module"
-	"DouyinBackend/request"
-	"DouyinBackend/response"
+	"SimpleDouyin/dao"
+	"SimpleDouyin/db"
+	"SimpleDouyin/module"
+	"SimpleDouyin/request"
+	"SimpleDouyin/response"
 	"errors"
 	"gorm.io/gorm"
 	"regexp"

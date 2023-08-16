@@ -1,9 +1,9 @@
 package main
 
 import (
-	"DouyinBackend/config"
-	"DouyinBackend/router"
-	"DouyinBackend/util"
+	"SimpleDouyin/config"
+	"SimpleDouyin/router"
+	"SimpleDouyin/util"
 	"github.com/gin-gonic/gin"
 	"log"
 )
