@@ -1,17 +1,15 @@
 package test
 
 import (
-	"DouyinBackend/config"
 	"DouyinBackend/dao"
-	"DouyinBackend/dao/impl"
 	"fmt"
 	"testing"
 )
 
 // TestGetUserByUsername 测试userDao.GetUserByUsername方法
 func TestGetUserByUsername(t *testing.T) {
-	config.LoadConfig("../configuration.json")
-	var userDao dao.UserDao = impl.UserDaoImpl{}
+	initTestApp()
+	userDao := dao.NewUserDao()
 	user, err := userDao.GetUserByUsername("test")
 	if err != nil {
 		fmt.Println(err.Error())

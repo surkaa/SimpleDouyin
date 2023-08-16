@@ -1,15 +1,12 @@
-package main
+package test
 
 import (
 	"DouyinBackend/config"
-	"DouyinBackend/router"
 	"DouyinBackend/util"
-	"github.com/gin-gonic/gin"
 )
 
-func initApp(r *gin.Engine) {
+func initTestApp() {
 	config.LoadConfig("./configuration.json")
 	util.SF = util.NewSnowflake(config.Config.WorkerID)
 	util.InitLogger("app.log")
-	router.RegisterRouter(r)
 }

@@ -3,11 +3,14 @@ package dao
 import (
 	"DouyinBackend/dao/impl"
 	"DouyinBackend/module"
+	"github.com/sirupsen/logrus"
 )
 
 // NewUserDao UserDao 实例化工厂函数
 func NewUserDao() UserDao {
-	return &impl.UserDaoImpl{}
+	return &impl.UserDaoImpl{
+		Logger: logrus.New(),
+	}
 }
 
 type UserDao interface {

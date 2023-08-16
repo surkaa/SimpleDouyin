@@ -72,8 +72,17 @@ func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (
 		Password: body.Password,
 	}
 	mysqlDB := db.GetMysqlConnection()
-	mysqlDB.Create(&user)
-	return response.UserRegister{}, nil
+	err = mysqlDB.Create(&user).Error
+	if err != nil {
+		return response.UserRegister{
+			Response: response.FailWithMsg("注册失败, 请重试"),
+		}, err
+	}
+	return response.UserRegister{
+		Response: response.Success(),
+		UserId:   0,
+		Token:    "",
+	}, err
 }
 
 // Login 登录
