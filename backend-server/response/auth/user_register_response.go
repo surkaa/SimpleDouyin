@@ -5,8 +5,8 @@ import "SimpleDouyin/response"
 // UserRegister 注册结果返回体
 type UserRegister struct {
 	response.Response
-	UserId int64  `json:"user_id"`
-	Token  string `json:"token"`
+	Token  string `json:"token"`   // 用户鉴权token
+	UserId int64  `json:"user_id"` // 用户id
 }
 
 // NewUserRegister 生成一个成功的注册结果返回体

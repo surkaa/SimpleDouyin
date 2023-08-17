@@ -5,6 +5,6 @@ import "SimpleDouyin/response"
 // UserLogin 注册结果返回体
 type UserLogin struct {
 	response.Response
-	UserId int64 `json:"user_id"`
-	Token  int64 `json:"token"`
+	Token  string `json:"token"`   // 用户鉴权token
+	UserId int64  `json:"user_id"` // 用户id
 }

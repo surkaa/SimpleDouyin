@@ -8,18 +8,18 @@ package data_module
 
 import "encoding/json"
 
-func UnmarshalUserResponseModule(data []byte) (UserResponseModule, error) {
-	var r UserResponseModule
+func UnmarshalUser(data []byte) (User, error) {
+	var r User
 	err := json.Unmarshal(data, &r)
 	return r, err
 }
 
-func (r *UserResponseModule) Marshal() ([]byte, error) {
+func (r *User) Marshal() ([]byte, error) {
 	return json.Marshal(r)
 }
 
-// UserResponseModule 用户返回体模型
-type UserResponseModule struct {
+// User 用户返回体模型
+type User struct {
 	Avatar          string `json:"avatar"`           // 用户头像
 	BackgroundImage string `json:"background_image"` // 用户个人页顶部大图
 	FavoriteCount   int64  `json:"favorite_count"`   // 喜欢数
