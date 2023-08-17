@@ -10,11 +10,3 @@ type UserInfo struct {
 	response.Response
 	module.User `json:"user"`
 }
-
-func test() {
-	var info = UserInfo{}
-	unmarshalResponse, err := response.UnmarshalResponse([]byte{})
-	if err != nil {
-		return
-	}
-}
