@@ -1,8 +1,10 @@
-package response
+package auth
+
+import "SimpleDouyin/response"
 
 // UserRegister 注册结果返回体
 type UserRegister struct {
-	Response
+	response.Response
 	UserId int64  `json:"user_id"`
 	Token  string `json:"token"`
 }

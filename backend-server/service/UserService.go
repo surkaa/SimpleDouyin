@@ -3,7 +3,7 @@ package service
 import (
 	"SimpleDouyin/dao"
 	"SimpleDouyin/request"
-	"SimpleDouyin/response"
+	"SimpleDouyin/response/auth"
 	"SimpleDouyin/service/impl"
 )
 
@@ -18,11 +18,11 @@ func NewUserService() UserService {
 type UserService interface {
 
 	// Register 注册
-	Register(body request.UserRegisterBody) (response.UserRegister, error)
+	Register(body request.UserRegisterBody) (auth.UserRegister, error)
 
 	// Login 登录
-	Login(body request.UserLoginBody) (response.UserLogin, error)
+	Login(body request.UserLoginBody) (auth.UserLogin, error)
 
 	// Info 获取用户信息
-	Info(body request.UserInfoBody) (response.UserInfo, error)
+	Info(body request.UserInfoBody) (auth.UserInfo, error)
 }

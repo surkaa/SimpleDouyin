@@ -6,6 +6,7 @@ import (
 	"SimpleDouyin/module"
 	"SimpleDouyin/request"
 	"SimpleDouyin/response"
+	"SimpleDouyin/response/auth"
 	"errors"
 	"gorm.io/gorm"
 	"regexp"
@@ -39,18 +40,18 @@ var (
 )
 
 // Register 注册
-func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (response.UserRegister, error) {
+func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (auth.UserRegister, error) {
 	// 先检查是否已有这个账号:
 	user, err := userServiceImpl.UserDao.GetUserByUsername(body.Username)
 	if err == nil {
 		// 账号重复
-		return response.UserRegister{
+		return auth.UserRegister{
 			Response: response.FailWithMsg("账号重复"),
 		}, err
 	} else {
 		// 不是因为找不到这个账号返回的异常
 		if !errors.Is(err, gorm.ErrRecordNotFound) {
-			return response.UserRegister{
+			return auth.UserRegister{
 				Response: response.Fail(),
 			}, err
 		} else {
@@ -58,12 +59,12 @@ func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (
 		}
 	}
 	if !CheckUsername(body.Username) {
-		return response.UserRegister{
+		return auth.UserRegister{
 			Response: response.FailWithMsg("账号长度过短或过长或包含了特殊字符"),
 		}, err
 	}
 	if !CheckPassword(body.Password) {
-		return response.UserRegister{
+		return auth.UserRegister{
 			Response: response.FailWithMsg("密码长度过短或过长或包含了特殊字符"),
 		}, err
 	}
@@ -74,11 +75,11 @@ func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (
 	mysqlDB := db.GetMysqlConnection()
 	err = mysqlDB.Create(&user).Error
 	if err != nil {
-		return response.UserRegister{
+		return auth.UserRegister{
 			Response: response.FailWithMsg("注册失败, 请重试"),
 		}, err
 	}
-	return response.UserRegister{
+	return auth.UserRegister{
 		Response: response.Success(),
 		UserId:   0,
 		Token:    "",
@@ -86,13 +87,13 @@ func (userServiceImpl UserServiceImpl) Register(body request.UserRegisterBody) (
 }
 
 // Login 登录
-func (userServiceImpl UserServiceImpl) Login(body request.UserLoginBody) (response.UserLogin, error) {
-	return response.UserLogin{}, nil
+func (userServiceImpl UserServiceImpl) Login(body request.UserLoginBody) (auth.UserLogin, error) {
+	return auth.UserLogin{}, nil
 }
 
 // Info 获取用户信息
-func (userServiceImpl UserServiceImpl) Info(body request.UserInfoBody) (response.UserInfo, error) {
-	return response.UserInfo{}, nil
+func (userServiceImpl UserServiceImpl) Info(body request.UserInfoBody) (auth.UserInfo, error) {
+	return auth.UserInfo{}, nil
 }
 
 // CheckUsername 检查账号是否合理
